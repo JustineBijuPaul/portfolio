@@ -127,7 +127,7 @@ nav ul li a {
   text-decoration: none;
 }
 
-footer{
+footer-down{
   display: flex;
   justify-content: center;
   flex-wrap: nowrap;
