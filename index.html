@@ -17,7 +17,16 @@
     <link rel="stylesheet" href="css/normalize.css" />
     <link rel="stylesheet" href="css/index.css" />
   </head>
+
   <body>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="./pages/about.html">About</a></li>
+        <li><a href="./pages/projects.html">Projects</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
     <canvas>
       <div class="instruction"></div>
       <div class="footer"></div>
@@ -36,67 +45,78 @@
           <span class="wrap"></span>
         </a>
       </h2>
+      <div class="social-media">
+        <a href="https://www.instagram.com/linxcapture/" target="_blank"><i class="fa-brands fa-instagram" style="color: #ffffff;"></i></a>
+        <a href="https://in.linkedin.com/in/justine-biju-paul-a3660524a" target="_blank"><i class="fa-brands fa-linkedin" style="color: #ffffff;"></i></a>
+        <a href="https://github.com/yourprofile" target="_blank"><i class="fa-brands fa-github" style="color: #ffffff;"></i></a>
+      </div>
     </div>
+    <footer>
+      <p>&copy; 2024 Justine Biju Paul. All rights reserved.</p>
+    </footer>
+    <script src="https://kit.fontawesome.com/f4d8aebfae.js" crossorigin="anonymous"></script>
     <script src="js/three.r74.min.js"></script>
     <script src="js/index.js"></script>
     <script>
-        // JavaScript code from the provided excerpt
-        function TxtType(el, toRotate, period) {
-            this.toRotate = toRotate;
-            this.el = el;
-            this.loopNum = 0;
-            this.period = parseInt(period, 10) || 2000;
-            this.txt = '';
-            this.tick();
-            this.isDeleting = false;
+      // JavaScript code from the provided excerpt
+      function TxtType(el, toRotate, period) {
+        this.toRotate = toRotate;
+        this.el = el;
+        this.loopNum = 0;
+        this.period = parseInt(period, 10) || 2000;
+        this.txt = "";
+        this.tick();
+        this.isDeleting = false;
+      }
+
+      TxtType.prototype.tick = function () {
+        var i = this.loopNum % this.toRotate.length;
+        var fullTxt = this.toRotate[i];
+
+        if (this.isDeleting) {
+          this.txt = fullTxt.substring(0, this.txt.length - 1);
+        } else {
+          this.txt = fullTxt.substring(0, this.txt.length + 1);
         }
 
-        TxtType.prototype.tick = function() {
-            var i = this.loopNum % this.toRotate.length;
-            var fullTxt = this.toRotate[i];
+        this.el.innerHTML = '<span class="wrap">' + this.txt + "</span>";
 
-            if (this.isDeleting) {
-                this.txt = fullTxt.substring(0, this.txt.length - 1);
-            } else {
-                this.txt = fullTxt.substring(0, this.txt.length + 1);
-            }
+        var that = this;
+        var delta = 200 - Math.random() * 100;
 
-            this.el.innerHTML = '<span class="wrap">'+this.txt+'</span>';
+        if (this.isDeleting) {
+          delta /= 2;
+        }
 
-            var that = this;
-            var delta = 200 - Math.random() * 100;
+        if (!this.isDeleting && this.txt === fullTxt) {
+          delta = this.period;
+          this.isDeleting = true;
+        } else if (this.isDeleting && this.txt === "") {
+          this.isDeleting = false;
+          this.loopNum++;
+          delta = 500;
+        }
 
-            if (this.isDeleting) { delta /= 2; }
+        setTimeout(function () {
+          that.tick();
+        }, delta);
+      };
 
-            if (!this.isDeleting && this.txt === fullTxt) {
-                delta = this.period;
-                this.isDeleting = true;
-            } else if (this.isDeleting && this.txt === '') {
-                this.isDeleting = false;
-                this.loopNum++;
-                delta = 500;
-            }
-
-            setTimeout(function() {
-                that.tick();
-            }, delta);
-        };
-
-        window.onload = function() {
-            var elements = document.getElementsByClassName('typewrite');
-            for (var i = 0; i < elements.length; i++) {
-                var toRotate = elements[i].getAttribute('data-type');
-                var period = elements[i].getAttribute('data-period');
-                if (toRotate) {
-                    new TxtType(elements[i], JSON.parse(toRotate), period);
-                }
-            }
-            // INJECT CSS
-            var css = document.createElement("style");
-            css.type = "text/css";
-            css.innerHTML = ".typewrite > .wrap { border-right: 0.08em solid #fff}";
-            document.body.appendChild(css);
-        };
+      window.onload = function () {
+        var elements = document.getElementsByClassName("typewrite");
+        for (var i = 0; i < elements.length; i++) {
+          var toRotate = elements[i].getAttribute("data-type");
+          var period = elements[i].getAttribute("data-period");
+          if (toRotate) {
+            new TxtType(elements[i], JSON.parse(toRotate), period);
+          }
+        }
+        // INJECT CSS
+        var css = document.createElement("style");
+        css.type = "text/css";
+        css.innerHTML = ".typewrite > .wrap { border-right: 0.08em solid #fff}";
+        document.body.appendChild(css);
+      };
     </script>
   </body>
 </html>

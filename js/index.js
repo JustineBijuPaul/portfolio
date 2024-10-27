@@ -2596,7 +2596,7 @@
               )),
               (o.utils.requestAnimationFrame = (function () {
                 return (
-                  window.webkitRequestAnimationFrame ||
+                  window.requestAnimationFrame ||
                   window.mozRequestAnimationFrame ||
                   window.oRequestAnimationFrame ||
                   window.msRequestAnimationFrame ||
