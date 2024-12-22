@@ -5055,11 +5055,19 @@
           a.isMobile ? ((s = e), i()) : e();
         }
         function i() {
-          (u = document.querySelector(".mobile")),
-            (u.style.display = "block"),
-            (l = document.querySelector(".mobile-bypass")) &&
-              l.addEventListener("click", r);
-        }
+          u = document.querySelector(".mobile");
+      
+          // Check if the element exists before modifying its style
+          if (u) {
+              u.style.display = "block";
+              l = document.querySelector(".mobile-bypass");
+              if (l) {
+                  l.addEventListener("click", r);
+              }
+          } else {
+              console.error("Element with class 'mobile' not found.");
+          }
+      }      
         function r() {
           u.parentNode.removeChild(u), s();
         }
