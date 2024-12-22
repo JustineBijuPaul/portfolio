@@ -5652,9 +5652,6 @@ function scrollTimeline(direction) {
   // Correct small negative zero (-0) issues
   if (Math.abs(scrollPosition) < 1) scrollPosition = 0;
 
-  console.log("Scroll Position:", scrollPosition);
-  console.log("Max Scroll:", maxScroll);
-
   // Apply the transform with updated scroll position
   timelineWrapper.style.transform = `translateX(${scrollPosition}px)`;
 }
