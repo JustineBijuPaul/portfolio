@@ -5616,36 +5616,37 @@
   [50]
 );
 
-let scrollPosition = 0;
+let scrollPosition = 0; // Initialize scrollPosition globally, so it can be accessed by the scrollTimeline function
 
 function scrollTimeline(direction) {
-    const timelineWrapper = document.getElementById("timelineWrapper");
-    const timeline = document.querySelector(".timeline");
-    const item = document.querySelector(".timeline-item");
+  const timelineWrapper = document.getElementById("timelineWrapper");
+  const timeline = document.querySelector(".timeline");
+  const item = document.querySelector(".timeline-item");
 
-    // Dynamically calculate item width (includes margin if any)
-    const itemWidth = item.offsetWidth + parseInt(window.getComputedStyle(item).marginRight) * 2;
+  // Dynamically calculate item width (includes margin if any)
+  const itemWidth =
+    item.offsetWidth + parseInt(window.getComputedStyle(item).marginRight) * 2;
 
-    // Update scroll position based on direction
-    if (direction === 'next') {
-        scrollPosition -= itemWidth;
-    } else if (direction === 'prev') {
-        scrollPosition += itemWidth;
-    }
+  // Update scroll position based on direction
+  if (direction === "next") {
+    scrollPosition -= itemWidth;
+  } else if (direction === "prev") {
+    scrollPosition += itemWidth;
+  }
 
-    // Get maximum scroll position (recalculate each time)
-    const maxScroll = -(timeline.scrollWidth - timeline.clientWidth);
+  // Get maximum scroll position (recalculate each time)
+  const maxScroll = -(timeline.scrollWidth - timeline.clientWidth);
 
-    // Restrict scrolling to prevent overflow
-    scrollPosition = Math.min(scrollPosition, 0); // prevent scrolling too far left
-    scrollPosition = Math.max(scrollPosition, maxScroll); // prevent scrolling too far right
-    
-    // Correct small negative zero (-0) issues
-    if (Math.abs(scrollPosition) < 1) scrollPosition = 0;
-    
-    console.log("Scroll Position:", scrollPosition);
-    console.log("Max Scroll:", maxScroll);
+  // Restrict scrolling to prevent overflow
+  scrollPosition = Math.min(scrollPosition, 0); // prevent scrolling too far left
+  scrollPosition = Math.max(scrollPosition, maxScroll); // prevent scrolling too far right
 
-    // Apply the transform with updated scroll position
-    timelineWrapper.style.transform = `translateX(${scrollPosition}px)`;
+  // Correct small negative zero (-0) issues
+  if (Math.abs(scrollPosition) < 1) scrollPosition = 0;
+
+  console.log("Scroll Position:", scrollPosition);
+  console.log("Max Scroll:", maxScroll);
+
+  // Apply the transform with updated scroll position
+  timelineWrapper.style.transform = `translateX(${scrollPosition}px)`;
 }
