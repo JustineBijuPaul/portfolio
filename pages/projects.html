@@ -12,24 +12,44 @@
 <body>
     <nav>
         <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="./pages/about.html">About</a></li>
-            <li><a href="./pages/projects.html">Projects</a></li>
-            <li><a href="contact.html">Contact</a></li>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="./about.html">About</a></li>
+            <li><a href="./projects.html">Projects</a></li>
+            <li><a href="./contact.html">Contact</a></li>
         </ul>
     </nav>
+
+    <div class="mobile" style="display: none;">
+    </div>
+  
+    <canvas id="mainCanvas"></canvas>
+    <div class="instruction"></div>
+    <div class="footer"></div>
 
     <main class="center">
         <div class="container">
             <h1>My Projects</h1>
             <div class="project-grid">
                 <div class="project-card">
-                    <img src="project1.jpg" alt="Project 1" class="project-image">
-                    <h3 class="project-title">Project Title 1</h3>
-                    <p class="project-description">Brief description of the project. This highlights the main features
-                        and
-                        technologies used.</p>
-                    <a href="project1.html" class="project-link">View Project</a>
+                    <img src="../images/waveform_chart.png" alt="Project 1" class="project-image">
+                    <h3 class="project-title">seismic Web</h3>
+                    <p class="project-description">Seismic Web is a web application that utilizes machine learning to  detect earthquakes from audio files.
+                        <br>
+                        <br>
+                        Key Features:
+                        <br>
+                        <span>&bull; </span>Upload audio files (MP3, WAV, MSEED) for analysis. <br>
+                        <span>&bull; </span>Visualize audio data (waveform) with Chart.js. <br>
+                        <span>&bull; </span>Download detected earthquake events as MSEED files. <br>
+                        <span>&bull; </span>Save waveform charts as PNG images. <br>
+                        <br>
+                        Technical Details:
+                        <br>
+                        <span>&bull; </span>Built with Flask (Python web framework). <br>
+                        <span>&bull; </span>Leverages machine learning for earthquake detection (model training required). <br>
+                        <span>&bull; </span>Utilizes libraries like Librosa, Obspy, Scikit-learn for audio processing and analysis. <br>
+                        <span>&bull; </span>Employs Axios (frontend) and Chart.js (frontend) for user interaction and data visualization.</p>
+                    <a href="https://github.com/JustineBijuPaul/seismic_web" target="_blank" class="project-link">View Project</a>
                 </div>
                 <div class="project-card">
                     <img src="project2.jpg" alt="Project 2" class="project-image">
