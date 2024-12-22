@@ -36,6 +36,15 @@
   text-align: justify;
 }
 
+.scrollable-div {
+  height: 235px;
+  overflow-y: auto;
+  padding: 10px;
+  border: 1px solid #b38c52;
+  scrollbar-color: #b38c52;
+  scrollbar-width: thin;
+}
+
 .timeline-section h2 {
   color: #fff;
   text-align: center;
