@@ -24,8 +24,9 @@ h1 {
   transform: translateY(-5px);
 }
 .project-image {
-  width: 100%;
+  width: 50%;
   height: 200px;
+  padding: 0 90px;
   object-fit: cover;
   border-radius: 8px 8px 0 0;
 }
@@ -53,4 +54,13 @@ h1 {
   margin-bottom: 30px;
   color: #ffffff;
   text-align: justify;
+}
+
+.scrollable-div {
+  overflow-y: auto;
+  padding-top: 10px;
+  padding-bottom: 0;
+  padding-left: 0;
+  padding-right: 0;
+  scrollbar-width: thin;
 }
