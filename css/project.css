@@ -64,3 +64,12 @@ h1 {
   padding-right: 0;
   scrollbar-width: thin;
 }
+
+.space-between{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    padding: 10px;
+}
