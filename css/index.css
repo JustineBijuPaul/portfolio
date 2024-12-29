@@ -89,17 +89,13 @@ canvas {
 }
 
 nav{
-  display: flex;
-  justify-content: center;
-  flex-wrap: nowrap;
   width: 100vw;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   z-index: 1;
-  align-items: flex-start;
   color: #ffffff;
-  padding: 1vh;
+  padding: 1vh 0;
   font-size: larger;
   font-weight: bolder;
   background: linear-gradient(to right, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.109));
